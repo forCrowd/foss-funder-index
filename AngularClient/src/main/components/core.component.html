@@ -21,7 +21,7 @@
 <div class="center">
   <div *ngFor="let item of elementItemSet">
     <div class="verified">
-        <i [hidden]="item.ElementCellSet[1].StringValue !== null" class="fa fa-check-circle" aria-hidden="true"></i>
+        <i [hidden]="item.ElementCellSet[1].StringValue === null" class="fa fa-check-circle" aria-hidden="true"></i>
     </div>
     <div class="cell left">
         {{ item.Name }}
