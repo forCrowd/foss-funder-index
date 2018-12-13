@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { Element, Project, ProjectService, ElementField } from "@forcrowd/backbone-client-core";
+import { Element, Project, ProjectService, ElementField, ElementItem, ElementCell } from "@forcrowd/backbone-client-core";
 
 import { Subscription } from "rxjs";
 import { mergeMap, map, filter } from "rxjs/operators";
@@ -21,6 +21,7 @@ export class CoreComponent implements OnInit {
   config: IConfig = { projectId: settings.content.rootProjectId };
   errorMessage: string;
   project: Project;
+  elementItemSet: ElementItem[];
 
   get selectedElement(): Element {
     return this.fields.selectedElement;
@@ -31,10 +32,16 @@ export class CoreComponent implements OnInit {
     }
   }
 
+  get selectedField(): ElementField {
+    return this.fields.selectedField;
+  }
+
   private fields: {
     selectedElement: Element,
+    selectedField: ElementField,
   } = {
-      selectedElement: null,
+    selectedElement: null,
+    selectedField: null
     }
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -48,28 +55,23 @@ export class CoreComponent implements OnInit {
     this.errorMessage = "";
 
     this.projectService.getProjectExpanded<Project>(this.config.projectId)
-    .subscribe(project => {
+      .subscribe(project => {
 
-      if (!project) {
-        this.errorMessage = "Invalid project";
-        return;
-      }
+        if (!project) {
+          this.errorMessage = "Invalid project";
+          return;
+        }
 
-      this.project = project;
+        this.project = project;
 
-      this.project.ElementSet.forEach(element => {
-        element.ElementFieldSet.forEach((field: ElementField) => {
-        });
+        // Selected element
+        this.selectedElement = this.project.ElementSet[0];
+
+        // Items
+        this.elementItemSet = this.selectedElement.ElementItemSet;
+
       });
-
-      // Selected element
-      this.selectedElement = this.project.ElementSet[0];
-
-      this.selectedElement.ElementItemSet.forEach((item) => console.log(item.Name));
-
-    });
   }
-
 
   ngOnInit() {
 
