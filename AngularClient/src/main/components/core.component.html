@@ -1,0 +1,36 @@
+<div class="header">
+  Foss Funder Index
+</div>
+
+<div class="index">
+  Index 2018
+</div>
+
+<div class="title">
+  Total FOSS investment<br>
+  per month 2018:
+</div>
+
+<div class="center">
+  <div class="verified">-</div>
+  <div class="cell fs-28">Company</div>
+  <div class="cell fs-28">Employees</div>
+  <div class="cell fs-28">Investment</div>
+</div>
+
+<div class="center">
+  <div *ngFor="let item of elementItemSet">
+    <div class="verified">
+        <i [hidden]="item.ElementCellSet[1].StringValue === null" class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    <div class="cell left">
+        {{ item.Name }}
+    </div>
+    <div class="cell">
+        {{ item.ElementCellSet[2].StringValue }}
+    </div>
+    <div class="cell">
+      ${{ item.ElementCellSet[0].StringValue.split(" - ")[0] | number: 0 }} - ${{ item.ElementCellSet[0].StringValue.split(" - ")[1] | number: 0 }}
+    </div>
+  </div>
+</div>

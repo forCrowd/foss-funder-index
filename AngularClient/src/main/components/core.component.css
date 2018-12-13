@@ -1,0 +1,52 @@
+.header {
+  height: 64px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dedede;
+}
+
+.title {
+  height: 56px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.index {
+  text-align: center;
+  height: 18px;
+  padding: 10px;
+  font-style: italic;
+}
+
+.verified {
+  width: 30px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.cell {
+  width: 160px;
+  display: inline-block;
+  padding: 10px;
+}
+
+i {
+  color: #1d80ec;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.fs-28 {
+  font-size: 28px;
+}
