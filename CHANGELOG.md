@@ -1,5 +1,9 @@
 ### Changelog
 
+**0.1.4**
+
+* Minor updates
+
 **0.1.3**
 
 * 2018, 2019 separation

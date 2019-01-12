@@ -1,35 +1,19 @@
-## General rules
-
 # NPM packages
+/node_modules
 npm-debug.log
-node_modules
-
-# NuGet packages
-packages
-
-# User-specific files
-*.suo
-*.user
-
-# Visual Studio
-.vs/
-UpgradeLog.htm
 
 # Others
 .DS_Store
 ~$*
 Thumbs.db
 
-## Project specific rules
+/dist
+/out-tsc
 
-# AngularClient
-AngularClient/dist
-AngularClient/out-tsc
+#/e2e/*.js
+#/e2e/*.map
 
-#AngularClient/e2e/*.js
-#AngularClient/e2e/*.map
+/src/index-*.html
 
-AngularClient/src/index-*.html
-
-AngularClient/src/settings/*
-!AngularClient/src/settings/settings.ts
+/src/settings/*
+!/src/settings/settings.ts
